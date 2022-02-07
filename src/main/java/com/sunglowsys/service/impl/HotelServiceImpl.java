@@ -23,7 +23,21 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public Hotel update(Hotel hotel, Long id) {
         Hotel hotel1 = hotelRepository.getById(id);
-        hotel1.setCode(hotel1.getCode());
+        if (hotel.getCode() != null){
+            hotel1.setCode(hotel.getCode());
+        }
+        if (hotel.getName() != null){
+            hotel1.setName(hotel.getName());
+        }
+        if (hotel.getHotelType() != null){
+            hotel1.setHotelType(hotel.getHotelType());
+        }
+        if (hotel.getEmail() != null){
+            hotel1.setEmail(hotel.getEmail());
+        }
+        if (hotel.getMobile() != null){
+            hotel1.setMobile(hotel.getMobile());
+        }
         return hotelRepository.save(hotel1);
     }
 
